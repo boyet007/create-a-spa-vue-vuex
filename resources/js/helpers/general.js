@@ -20,6 +20,13 @@ export function initialize(store, router) {
         }
 
         return Promise.reject(error)
-        
     })
+
+    if(store.getters.currentUser) {
+        setAuhorization(store.getters.currentUser.token)
+    }
+}
+        
+export function setAuhorization(token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 }

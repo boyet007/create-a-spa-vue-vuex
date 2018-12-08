@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Http\Requests\CreateCustomerRequest;
 
 class CustomersController extends Controller
 {
@@ -23,7 +24,7 @@ class CustomersController extends Controller
         ], 200);
     }
 
-    public function new(Request $request) {
+    public function new(CreateCustomerRequest $request) {
         $customer = Customer::create($request->only(['name', 'email', 'phone', 'website']));
         return response()->json([
             'customer' => $customer

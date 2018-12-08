@@ -12,7 +12,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="password">Password:</label>
-                            <input type="password" name="" v-model="form.password" 
+                            <input type="password" name="" v-model="form.password"  
                             class="form-control" placeholder="Password">
                         </div>
                         <div class="form-group row">
@@ -37,8 +37,8 @@ export default {
     data() {
         return {
             form: {
-                email: '',
-                password: ''
+                email: 'boyet007@gmail.com',
+                password: 'Wynne321'
             },
             error: null
         }
