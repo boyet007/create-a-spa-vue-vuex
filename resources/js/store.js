@@ -5,16 +5,17 @@ export default {
         currentUser: getLocalUser(),
         isLoggedIn: !!getLocalUser(),
         loading: false,
-        auth_errorr: null,
+        auth_error: null,
+        test_error: null,
         customers: []
     },
     mutations: {
         login(state) {
             state.loading = true
-            state.auth_errorr = null
+            state.auth_error = null
         },
         loginSuccess(state, payload) {
-            state.auth_errorr = null
+            state.auth_error = null
             state.isLoggedIn = true
             state.loading = false
             state.currentUser = Object.assign({}, payload.user, {token: payload.access_token})
@@ -22,7 +23,7 @@ export default {
             localStorage.setItem('user', JSON.stringify(state.currentUser))
         },
         loginFailed(state, payload) {
-            state.loading = false  
+            state.loading = false
             state.auth_error = payload.error
         },
         logout(state){
@@ -48,7 +49,7 @@ export default {
             return state.currentUser
         },
         authError(state) {
-            return state.auth_errorr
+            return state.auth_error
         },
         customers(state) {
             return state.customers

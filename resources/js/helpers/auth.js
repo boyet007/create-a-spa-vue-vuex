@@ -1,8 +1,8 @@
-import Axios from "axios";
+import axios from "axios";
 
 export function login(credentials) {
     return new Promise((res, rej) => {
-        Axios.post('/api/auth/login', credentials)
+        axios.post('/api/auth/login', credentials)
         .then((response) => {
             res(response.data)
         })
